@@ -1,5 +1,8 @@
 # app_barbershop
 
+# build_runner
+dart run build_runner watch -d
+
 A new Flutter project.
 
 ## Getting Started
