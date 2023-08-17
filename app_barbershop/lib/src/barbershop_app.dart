@@ -11,19 +11,21 @@ class BarbershopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AsyncStateBuilder(
-      customLoader: const BarbershopLoader(),
-      builder: (asyncNavigatorObserver) {
-      return MaterialApp(
-        title: "Dw Barbershop",
-        theme: BarbershopTheme.themeData,
-        navigatorObservers: [
-          asyncNavigatorObserver,
-        ],
-        routes: {
-          "/": (_) => const SplashPage(),
-          "/auth/login": (_) => const LoginPage(),
-        },
-      );
-    });
+        customLoader: const BarbershopLoader(),
+        builder: (asyncNavigatorObserver) {
+          return MaterialApp(
+            title: "Dw Barbershop",
+            theme: BarbershopTheme.themeData,
+            navigatorObservers: [
+              asyncNavigatorObserver,
+            ],
+            routes: {
+              "/": (_) => const SplashPage(),
+              "/auth/login": (_) => const LoginPage(),
+              "/home/adm": (_) => const Text("ADM"),
+              "/home/employee": (_) => const Text("Employee"),
+            },
+          );
+        });
   }
 }
