@@ -1,3 +1,4 @@
+import 'package:app_barbershop/src/core/ui/barbershop_nav_global_key.dart';
 import 'package:app_barbershop/src/core/ui/barbershop_theme.dart';
 import 'package:app_barbershop/src/core/ui/widgets/barbershop_loader.dart';
 import 'package:app_barbershop/src/features/auth/login/login_page.dart';
@@ -16,6 +17,7 @@ class BarbershopApp extends StatelessWidget {
           return MaterialApp(
             title: "Dw Barbershop",
             theme: BarbershopTheme.themeData,
+            navigatorKey: BarbershopNavGlobalKey.instance.navKey,
             navigatorObservers: [
               asyncNavigatorObserver,
             ],
