@@ -32,7 +32,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final LoginVM(:login) = ref.watch(loginVMProvider.notifier);
 
     ref.listen(loginVMProvider, (previous, next) {
-      switch(next) {
+      switch (next) {
         case LoginState(status: LoginStateStatus.initial):
           break;
         case LoginState(status: LoginStateStatus.error, :final errorMessage?):
@@ -42,10 +42,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           Messages.showError("Erro ao realizar login", context);
           break;
         case LoginState(status: LoginStateStatus.admLogin):
-          Navigator.of(context).pushNamedAndRemoveUntil("/home/adm", (route) => false);
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil("/home/adm", (route) => false);
           break;
         case LoginState(status: LoginStateStatus.employeeLogin):
-          Navigator.of(context).pushNamedAndRemoveUntil("/home/employee", (route) => false);
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil("/home/employee", (route) => false);
           break;
       }
     });
@@ -142,14 +144,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               ))
                         ],
                       ),
-                      const Align(
+                      Align(
                         alignment: Alignment.bottomCenter,
-                        child: Text(
-                          "Criar conta",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed("/auth/register/user");
+                          },
+                          child: const Text(
+                            "Criar conta",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
